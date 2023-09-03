@@ -8,7 +8,6 @@ type LoggedProps = {
 };
 
 const Logged = ({ image }: LoggedProps) => {
-  console.log(image);
   return (
     <div className="flex items-center space-x-3">
       <div onClick={() => signOut()} title="logout">

@@ -9,9 +9,14 @@ const Nav = async () => {
 
   return (
     <div className="flex justify-between items-center py-5 border-b border-dashed border-zinc-400 mb-5">
-      <Link href={'/'}>
-        <h1 className="text-2xl font-bold">Postit</h1>
-      </Link>
+      <div className="flex items-center space-x-3">
+        <Link href={'/'}>
+          <h1 className="text-2xl font-bold">Postit</h1>
+        </Link>
+        <Link href={'/create-post'}>
+          <span className="cursor-pointer">Create</span>
+        </Link>
+      </div>
       {!session?.user ? (
         <Login />
       ) : (

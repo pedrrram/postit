@@ -1,7 +1,9 @@
-import Nav from '@/components/auth/Nav';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
+import QueryWrapper from '@/providers/QueryWrapper';
+import Nav from '@/components/auth/Nav';
+import { Toaster } from 'react-hot-toast';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -24,8 +26,11 @@ export default function RootLayout({
       <body
         className={`${roboto.className} mx-auto max-w-screen-xl  h-screen px-5 cursor-default`}
       >
-        <Nav />
-        {children}
+        <QueryWrapper>
+          <Nav />
+          <Toaster />
+          {children}
+        </QueryWrapper>
       </body>
     </html>
   );
