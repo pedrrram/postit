@@ -1,10 +1,12 @@
 'use client';
 import { useMutation } from '@tanstack/react-query';
 import axios, { AxiosError } from 'axios';
+import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 const CreatePostForm = () => {
+  const router = useRouter();
   const [title, setTitle] = useState('');
   let [toastPostId, setToastPostId] = useState<string>();
 
@@ -18,6 +20,7 @@ const CreatePostForm = () => {
     onSuccess: () => {
       toast.success('Post has been made...🔥', { id: toastPostId });
       setTitle('');
+      router.push('/')
     },
     onError: (err) => {
       if (err instanceof AxiosError) {
