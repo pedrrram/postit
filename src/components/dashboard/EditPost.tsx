@@ -42,10 +42,10 @@ const EditPost = ({ id, avatar, name, title, comments }: EditPostProps) => {
   });
 
   const deleteHandler = async () => {
-    await mutateAsync(id);
     setToastPostId(
       toast.loading("deleting the post...", { id: "toastPostId" })
-    );
+      );
+      await mutateAsync(id);
   };
 
   return (
